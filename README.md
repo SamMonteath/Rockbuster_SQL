@@ -13,6 +13,6 @@ https://drive.google.com/file/d/1hVzBWz5ORRbI37HA8p5tAiuZyMOe66yI/view
 
 ## Folder structure
 There are three folders in this repository
-<ol><li>SQL Queries - the questions I was tasked with and the queries I used to answer them -</li></ol>
-<ol><li>Notes Queries - a full record of how I arrived at the correct query, motes, method, and missteps to avoid -</li></ol>
-<ol><li>Outputs - .csv and .xls files contianing the results of my Queries</li></ol>
+<ol><li>1. SQL Queries - the questions I was tasked with and the queries I used to answer them -</li></ol>
+<ol><li>2. Notes and Outouts on Queries - a full record of how I arrived at the correct query, motes, method, and missteps to avoid -</li></ol>
+<ol><li>3. Data Outputs from pgAdmin - .csv and .xls files containing the results of my Queries</li></ol>
