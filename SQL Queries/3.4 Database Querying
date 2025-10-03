@@ -1,0 +1,40 @@
+Basic Queries in SQL
+
+#1. You realize that only the “film_id” and “title” columns are needed. Write a new query that selects only those 2 columns.
+
+SELECT film_id, title FROM film
+
+#2. Select every film from the “film” table, with the movies sorted by title from A to Z, then by most recent release year, and then by highest to lowest rental rate.
+
+SELECT title, release_year, rental_rate FROM film
+ORDER by title ASC, release_year DESC, rental_rate DESC
+
+#3. What is the average rental rate for each rating category?
+
+SELECT rating, AVG(rental_rate) FROM film
+GROUP BY rating
+ORDER BY AVG(rental_rate) DESC
+
+#4. What are the minimum and maximum rental durations for each rating category?
+
+SELECT rating, MAX(rental_rate) FROM film
+GROUP BY rating
+ORDER BY MAX(rental_rate) DESC
+
+SELECT rating, MIN(rental_rate) FROM film
+GROUP BY rating
+ORDER BY MIN(rental_rate) DESC
+
+#5. What are the minimum replacement costs for each rating category ordered by rating as follows: G, PG, PG-13, R, NC-17?
+
+SELECT rating, MIN(replacement_cost)
+FROM film
+GROUP BY rating
+ORDER BY CASE
+WHEN rating = 'G' THEN 1
+WHEN rating = 'PG' THEN 2
+WHEN rating = 'PG-13' THEN 3
+WHEN rating = 'R' THEN 4
+WHEN rating = 'NC-17' THEN 5
+ELSE 6
+END;
