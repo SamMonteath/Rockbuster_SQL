@@ -1,0 +1,28 @@
+First steps into SQL Queries
+
+#1. Write a SELECT command to find out what film genres exist in the category table
+
+SELECT category_id, name AS genre FROM Category
+
+#2. Write an INSERT statement to add the following genres to the category table: Thriller, Crime, Mystery, Romance, and War
+
+INSERT INTO category (name)
+VALUES ('Thriller'), ('Crime'), ('Mystery'), ('Romance'), ('War');
+
+#3. Write the SELECT statement to find the film_id for the movie African Egg.
+
+SELECT title, film_id FROM film WHERE title = 'African Egg'
+
+#4. write an UPDATE command to change the category in the film_category table
+
+SELECT category_id, film_id FROM film_category WHERE film_id = 5
+#Category_id = 8
+SELECT category_id, name FROM category WHERE category_id = 8
+#Current category is ‘family’
+SELECT name, category_id FROM category WHERE name = 'thriller'
+#Thriller category_id = 17
+UPDATE film_category SET category_id = 17 WHERE film_id= 5
+
+#5. there aren’t many movies in the mystery category, you and your manager decide to remove it from the category table. Write a DELETE command to do so
+
+DELETE FROM category WHERE name = 'mystery'
