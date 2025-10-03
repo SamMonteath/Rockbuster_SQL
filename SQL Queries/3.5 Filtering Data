@@ -1,0 +1,71 @@
+Finding spcific values in a data set
+
+#1 Film title contains the word Uptown in any position
+
+SELECT film_id,
+title,
+description
+FROM film
+WHERE title LIKE '%Uptown%'
+
+#2 Film length is more than 120 minutes and rental rate is more than 2.99
+
+SELECT film_id,
+title,
+description
+FROM film
+WHERE length > 120 AND rental_rate > 2.99
+
+#3 Rental duration is between 3 and 7 days (where 3 and 7 aren’t inclusive)
+
+SELECT film_id,
+title,
+description
+FROM film
+WHERE rental_duration BETWEEN 3 AND 7
+
+#4 Film replacement cost is less than 14.99
+
+SELECT film_id,
+title,
+description
+FROM film
+WHERE replacement_cost < 14.99
+
+#5 Film rating is either PG or G
+
+SELECT film_id,
+title,
+description
+FROM film
+WHERE rating = 'PG' OR rating ='G'
+
+# 6 aggregate columns the following aliases:
+“count of movies”
+“average movie rental rate”
+“maximum rental duration”
+“minimum rental duration”
+
+SELECT title,
+description,
+COUNT(film_id) AS count_of_movies,
+AVG(rental_rate) AS average_movie_rental_rate,
+MAX(rental_duration) AS maximum_rental_duration,
+MIN(rental_duration) AS minimum_rental_duration
+FROM film
+WHERE rating IN ('PG', 'G')
+GROUP BY title, description;
+
+# 7 SHow the fields above grouped by rating
+
+SELECT title,
+description,
+rating,
+COUNT(film_id) AS count_of_movies,
+AVG(rental_rate) AS average_movie_rental_rate,
+MAX(rental_duration) AS maximum_rental_duration,
+MIN(rental_duration) AS minimum_rental_duration
+FROM film
+WHERE rating IN ('PG', 'G')
+GROUP BY title, description, rating
+ORDER BY rating = 'PG', rating;
