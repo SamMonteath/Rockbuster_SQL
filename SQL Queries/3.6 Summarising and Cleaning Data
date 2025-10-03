@@ -1,0 +1,70 @@
+#1 Check for and clean dirty data
+
+#Looking for duplicates
+SELECT film_id,
+title,
+description,
+release_year,
+language_id,
+rental_duration,
+rental_rate,
+length,
+replacement_cost,
+rating,
+last_update,
+special_features,
+fulltext,
+count(*)
+FROM film
+GROUP BY film_id,
+title,
+description,
+release_year,
+language_id,
+rental_duration,
+rental_rate,
+length,
+replacement_cost,
+rating,
+last_update,
+special_features,
+fulltext
+HAVING COUNT(*) > 1
+
+#looking for NULL values
+
+SELECT
+COUNT(film_id) AS film_count,
+COUNT(title) AS title_count,
+COUNT(description) AS description_count,
+COUNT (release_year) AS year_count,
+COUNT (language_id) AS language_count,
+COUNT(rental_duration) AS rental_duration_count,
+COUNT(rental_rate) AS rental_rate_count,
+COUNT (length) AS length_count,
+COUNT (replacement_cost) AS replacement_cost_count,
+COUNT(rating) AS rating_count,
+COUNT (last_update) AS last_update_count,
+COUNT (special_features) AS special_features_count,
+COUNT (fulltext) AS fulltext_count
+FROM film;
+
+#2 Summarising Data
+
+SELECT
+AVG (rental_rate) AS ave_rate,
+MAX (rental_rate) AS max_rate,
+MIN (rental_rate) AS min_rate,
+AVG (rental_duration) AS ave_duration,
+MAX (rental_duration) AS max_duration,
+MIN (rental_duration) AS min_duration,
+AVG (length) AS ave_length,
+MAX (length) AS max_length,
+MIN (length) AS min_length,
+AVG (replacement_cost) AS ave_repcost,
+MAX (replacement_cost) AS max_repcost,
+MIN (replacement_cost) AS min_repcost
+FROM film
+
+
+
